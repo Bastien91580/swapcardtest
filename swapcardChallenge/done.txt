@@ -1,0 +1,12 @@
+[x] User creation
+[x] Authentication with session or stateless session
+[x] You must know which user sent a specific message
+[x] Create a channel
+[x] List the channels
+[x] List the messages inside a channel
+[x] Send a message to a channel
+
+
+[x] Delete a channel
+[x] A channel owner can invite/kick another user into to/from his channel
+[x] Users cannot read nor write into channel they aren’t a member of
