@@ -1,0 +1,157 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Feb 28, 2020 at 01:56 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `swapcard`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `channel`
+--
+
+CREATE TABLE `channel` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `idOwner` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `channel`
+--
+
+INSERT INTO `channel` (`id`, `name`, `idOwner`) VALUES
+(13, 'test', 21),
+(18, 'test2', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `idChannel` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id`, `idUser`, `idChannel`) VALUES
+(2, 21, 18),
+(3, 21, 19),
+(4, 21, 20),
+(5, 21, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL,
+  `idChannel` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `idChannel`, `content`, `idUser`, `date`) VALUES
+(10, 18, 'this is a test with postman', 21, '2020-02-28 13:06:46'),
+(11, 18, 'this is a test with postman', 21, '2020-02-28 13:39:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `token` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `pseudo`, `mail`, `password`, `token`) VALUES
+(21, 'Xeno', 'bastien@gmail.com', 'c27ab7f7336e3f3677b0c36adbafee3c93c3b048', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYmFzdGllbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6ImMyN2FiN2Y3MzM2ZTNmMzY3N2IwYzM2YWRiYWZlZTNjOTNjM2IwNDgifQ.oYVUF6yYTmgOLxZ3aGUBNueQ_8qYI3w64UHDFNIt6Q0'),
+(22, 'XenoDeux', 'bastienasdz@gmail.com', 'c27ab7f7336e3f3677b0c36adbafee3c93c3b048', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYmFzdGllbmFzZHpAZ21haWwuY29tIiwicGFzc3dvcmQiOiJjMjdhYjdmNzMzNmUzZjM2NzdiMGMzNmFkYmFmZWUzYzkzYzNiMDQ4In0.W2-VE0CY_rRzpOxk-ynpgfbWMzz8vay_G5EM7_18lks');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `channel`
+--
+ALTER TABLE `channel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `channel`
+--
+ALTER TABLE `channel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
